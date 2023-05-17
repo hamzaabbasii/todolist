@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\todoController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [todoController::class, 'index'])->name('login');
-Route::get('/newtask', [todoController::class, 'addNewTask']);
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/', [AuthController::class, 'login']);
+Route::get('/register',[AuthController::class, 'showSignupForm'])->name('register');
+Route::post('/register',[AuthController::class, 'signup']);
+
+Route::get('/newtask', [todoController::class, 'showTaskPage'])->name('newtask');
+Route::post('/newtask', [todoController::class, 'addNewTask']);
 Route::get('/alltask', [todoController::class, 'viewAllTask']);
 

@@ -14,30 +14,22 @@
             <th scope="col">Actions</th>
           </tr>
         </thead>
+        @foreach ($task as $tasks)
         <tbody>
           <tr>
-            <td>Task 1</td>
-            <td>Task 1 Description</td>
-            <td>2023-05-08</td>
-            <td>2023-05-10</td>
-            <td>Not Started</td>
+            <td>{{$tasks->id}}</td>
+            <td>{{$tasks->title}}</td>
+            <td>{{$tasks->description}}</td>
+            <td>{{$tasks->startDate}}</td>
+            <td>{{$tasks->endDate}}</td>
             <td>
               <a href="#" class="btn btn-sm btn-primary">Update</a>
               <a href="#" class="btn btn-sm btn-danger">Delete</a>
             </td>
           </tr>
-          <tr>
-            <td>Task 2</td>
-            <td>Task 2 Description</td>
-            <td>2023-05-11</td>
-            <td>2023-05-13</td>
-            <td>In Progress</td>
-            <td>
-              <a href="#" class="btn btn-sm btn-primary">Update</a>
-              <a href="#" class="btn btn-sm btn-danger">Delete</a>
-            </td>
-          </tr>
+          
         </tbody>
+        @endforeach
       </table>
       <div class="text-center mt-3">
         <a href="/create-task" class="btn btn-primary">Create Task</a>

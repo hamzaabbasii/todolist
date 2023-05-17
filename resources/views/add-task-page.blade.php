@@ -5,7 +5,8 @@
 <div class="container mt-5">
     <div class="card p-4 shadow">
       <h2 class="text-center mb-4">Add Task</h2>
-      <form method="" action="">
+      <form method="post" action="{{url('/')}}/newtask">
+        @csrf
         <div class="form-group">
           <label for="taskTitle">Task Title</label>
           <input type="text" name="taskTitle" class="form-control" id="taskTitle" placeholder="Enter task title">
@@ -25,7 +26,7 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Add Task</button>
-        <a href="#" class="btn btn-secondary btn-block mt-3">View All Tasks</a>
+        <a href="{{ url('/alltask') }}" class="btn btn-secondary btn-block mt-3">View All Tasks</a>
       </form>
     </div>
   </div>
