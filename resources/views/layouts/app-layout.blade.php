@@ -8,10 +8,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> 
   </head>
   <body>
+
       <!-- Nav tabs -->
-      <ul class="nav nav-tabs" id="navId">
+      <ul class="nav nav-tabs" id="navId" style="background-color:rgb(240, 240, 233);">
         <li class="nav-item">
             <a href="#tab1Id" class="nav-link active">Active</a>
         </li>

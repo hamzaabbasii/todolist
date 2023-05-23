@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials, $request->remember))
         {
-            return redirect()->intended(route('newtask'));
+            return redirect()->intended(route('newtask.add'));
         }
         else
         {
