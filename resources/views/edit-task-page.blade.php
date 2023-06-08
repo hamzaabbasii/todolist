@@ -2,8 +2,8 @@
 @extends('layouts.app-layout')
 @section('content')
 
-<div class="container mt-5">
-    <div class="card p-4 shadow" style="border-radius: .75rem; background-color: white;">
+<div class="container custom-container mt-5 " style="width:900px; height:601px;">
+    <div class="p-4" style="border-radius: .75rem; background-color: white;">
       <h2 class="text-center mb-4" >Add Task</h2>
       <form method="post" action="{{ route('edittask.show', ['id'=> $task->id] )}}">
         @csrf

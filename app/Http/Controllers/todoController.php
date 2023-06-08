@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
 
 use function PHPUnit\Framework\isNull;
@@ -24,10 +25,12 @@ class todoController extends Controller
             'endDate'=> 'required|date|after_or_equal:startDate'
         ]);
         $task = new Todo();
+        $user = Auth::user();
         $task->title = $validatedData['taskTitle'];
         $task->description =$validatedData['taskDescription'];
         $task->startDate=$validatedData['startDate'];
         $task->endDate=$validatedData['endDate'];
+        $task->user_id = $user->id;
         $task->save();
 
         return redirect('/newtask')->with('success','Task has created successfully');
@@ -54,7 +57,6 @@ class todoController extends Controller
             'startDate'=>'required|date',
             'endDate'=> 'required|date|after_or_equal:startDate'
         ]);
-
         $task = Todo::findOrFail($id);
         $task->title = $validatedData['taskTitle'];
         $task->description =$validatedData['taskDescription'];
@@ -67,8 +69,8 @@ class todoController extends Controller
     }
     public function deleteTask($id)
     {
-        $task = Todo::findOrFail($id);
-        if(!isNull($task))
+        $task = Todo::find($id);
+        if(!is_null($task))
         {
             $task->delete();
         }

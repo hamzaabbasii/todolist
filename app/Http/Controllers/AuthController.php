@@ -14,6 +14,9 @@ class AuthController extends Controller
     }
     public function login(Request $request)
     {
+        echo "<pre>";
+        print_r($request->all());
+        die;
         $credentials = $request -> validate([
             'email'=> 'required|string|email',
             'password'=> 'required|string',
